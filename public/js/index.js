@@ -20,7 +20,9 @@ const vm = new Vue({
       this.isLoggedIn = !this.isLoggedIn;
     },
     onSubmit: function(event) {
-      if (this.name == "" && this.cost == "" && this.quantity == "") {
+      console.log(this.name)
+      console.log(this.cost)
+      if (this.name != "" && this.cost != "" && this.quantity != "") {
         hoodie.store.withIdPrefix("item").add({
           name: this.name,
           cost: this.cost,
@@ -34,12 +36,12 @@ const vm = new Vue({
 
         const snackbarContainer = document.querySelector("#toast");
         snackbarContainer.MaterialSnackbar.showSnackbar({
-          message: "Item successfully added"
+          message: "Item successfully added !"
         });
       } else {
         const snackbarContainer = document.querySelector("#toast");
         snackbarContainer.MaterialSnackbar.showSnackbar({
-          message: "An error occured. See details"
+          message: "An error occured; if statement telling than no data has been inserted @.@"
         });
       }//end_if
     },

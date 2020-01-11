@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="easily make a list of your shopping items and track your shopping expense">
+  <title>Shopping List</title>
+
+  <link rel="stylesheet" href="/resources/mdl/material-icons.css">
+  <link rel="stylesheet" href="/resources/mdl/material.indigo-pink.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="/resources/mdl/material.min.js"></script>
+  <script src="/resources/dialog-polyfill/dialog-polyfill.js"></script>
+  <link rel="stylesheet" href="/resources/dialog-polyfill/dialog-polyfill.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <navigation v-bind:is-logged-in="isLoggedIn" v-bind:toggle-logged-in="toggleLoggedIn"></navigation>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <div class="center">
+            <h2>Your most recent items</h2>
+          </div>
+
+          <div class="mdl-grid center-items">
+            <table id="item-table" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                    <tr>
+                      <th class="mdl-data-table__cell--non-numeric">Shoping list date</th>
+                      <th class="mdl-data-table__cell--non-numeric">Total cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in list" :key="item._id">
+                      <td class="mdl-data-table__cell--non-numeric">{{ new Date(item.hoodie.createdAt).toDateString() }}</td>
+                      <td class="mdl-data-table__cell--non-numeric">$$ {{ item.cost }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Alternative display using span
+
+            <ul id="list-history" class="demo-list-icon mdl-list">
+            <li v-for="item in list" :key="item._id" class="mdl-list__item">
+                <span class="mdl-list__item-primary-content">
+                  <span>Created </span>
+                  <span class="pad-right">{{ new Date(item.hoodie.createdAt).toDateString() }}</span>
+                  <span>
+                    <span class="cost-label">Cost: </span>$$ {{ item.cost }}</span>
+                </span>
+            </li>
+            </ul>
+            -->
+
+          </div>
+
+          <div class="mdl-grid center-items">
+            <div id="toast" class="mdl-js-snackbar mdl-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button class="mdl-snackbar__action" type="button"></button>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <login-dialog v-bind:toggle-logged-in="toggleLoggedIn"></login-dialog>
+    <register-dialog v-bind:toggle-logged-in="toggleLoggedIn"> </register-dialog>
+  </div>
+
+  <script src="/hoodie/client.js"></script>
+  <script src="resources/vue@2.5.16.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/history.js"></script>
+</body>
+
+</html>
