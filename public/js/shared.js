@@ -113,7 +113,7 @@ Vue.component("register-dialog", {
         .catch(error => {
           console.log(error);
           document.querySelector("#register-error").innerHTML =
-            "Error occurred on Registration";
+            "An error occured during Registration.";
         });
     }
   }
@@ -178,4 +178,4 @@ Vue.component("login-dialog", {
           });
       }
     }
-  });
+});
