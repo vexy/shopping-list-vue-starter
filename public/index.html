@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="easily make a list of your shopping items and track your shopping expense">
-  <title>Shopping List</title>
+  <meta name="description" content="Easily make a list of your shopping items and track your shopping expense">
+  <title>Simple shopping list example</title>
 
   <link rel="stylesheet" href="/resources/mdl/material-icons.css">
   <link rel="stylesheet" href="/resources/mdl/material.indigo-pink.min.css" />
@@ -57,14 +57,10 @@
             <thead>
                 <tr>
                   <th class="mdl-data-table__cell--non-numeric">Item</th>
-                  <th class="mdl-data-table__cell--non-numeric">Cost per item</th>
+                  <th class="mdl-data-table__cell--non-numeric">Cost</th>
                   <th class="mdl-data-table__cell--non-numeric">Quantity</th>
                   <th class="mdl-data-table__cell">Item sub-total</th>
-                  <th class="mdl-data-table__cell--non-numeric">
-                    <button class="mdl-button mdl-js-button mdl-button--icon">
-                      <i class="material-icons">delete</i>
-                    </button>
-                  </th>
+                  <th class="mdl-data-table__cell">Delete ?</th>
                 </tr>
 
             </thead>
@@ -72,14 +68,11 @@
                 <tr v-for="item in items" :key="item._id">
                   <td class="mdl-data-table__cell--non-numeric">{{ item.name}}</td>
                   <td class="mdl-data-table__cell--non-numeric">${{ item.cost}}</td>
-                 <td class="mdl-data-table__cell--non-numeric">{{ item.quantity}}</td>
+                  <td class="mdl-data-table__cell--non-numeric">{{ item.quantity}}</td>
                   <td class="mdl-data-table__cell">${{ item.subTotal}}</td>
                   <td class="mdl-data-table__cell--non-numeric">
                     <button @click="deleteRow(item._id)" class="mdl-button mdl-js-button mdl-button--icon">
                       <i class="material-icons">delete</i>
-                    </button>
-                    <button @click="deleteRow(item._id)" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-                      <i class="material-icons">remove</i>
                     </button>
                   </td>
                 </tr>

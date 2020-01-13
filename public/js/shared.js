@@ -45,10 +45,10 @@ Vue.component("navigation", {
         .signOut()
         .then(() => {
           this.toggleLoggedIn();
-          window.location.reload();
+          window.location.reload();  //redirect ?
         })
         .catch(error => {
-          alert("Could not logout");
+          alert("An error occured during logout.");
         });
     }
   }
