@@ -53,23 +53,23 @@
           </div>
 
           <div class="mdl-grid center-items">
-            <table id="item-table" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <table id="item-table" class="mdl-data-table mdl-shadow--2dp">
             <thead>
                 <tr>
                   <th class="mdl-data-table__cell--non-numeric">Item</th>
-                  <th class="mdl-data-table__cell--non-numeric">Cost</th>
-                  <th class="mdl-data-table__cell--non-numeric">Quantity</th>
-                  <th class="mdl-data-table__cell">Item sub-total</th>
-                  <th class="mdl-data-table__cell">Delete ?</th>
+                  <th>Cost</th>
+                  <th>Quantity</th>
+                  <th>Item sub-total</th>
+                  <th>Delete ?</th>
                 </tr>
 
             </thead>
             <tbody>
                 <tr v-for="item in items" :key="item._id">
-                  <td class="mdl-data-table__cell--non-numeric">{{ item.name}}</td>
-                  <td class="mdl-data-table__cell--non-numeric">${{ item.cost}}</td>
-                  <td class="mdl-data-table__cell--non-numeric">{{ item.quantity}}</td>
-                  <td class="mdl-data-table__cell">${{ item.subTotal}}</td>
+                  <td class="mdl-data-table__cell--non-numeric">{{ item.name }}</td>
+                  <td>${{ item.cost }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>${{ item.subTotal }}</td>
                   <td class="mdl-data-table__cell--non-numeric">
                     <button @click="deleteRow(item._id)" class="mdl-button mdl-js-button mdl-button--icon">
                       <i class="material-icons">delete</i>
@@ -82,14 +82,13 @@
 
           <div class="mdl-grid center-items">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <h4>Total Cost: ${{ total }}</h4>
+              <h4>Total Cost: $ {{total}}</h4>
             </div>
-
           </div>
 
           <div class="mdl-grid center-items">
             <button @click="saveList" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-            Save List
+              Save List
             </button>
           </div>
 

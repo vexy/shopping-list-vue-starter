@@ -20,8 +20,6 @@ const vm = new Vue({
       this.isLoggedIn = !this.isLoggedIn;
     },
     onSubmit: function(event) {
-      console.log(this.name)
-      console.log(this.cost)
       if (this.name != "" && this.cost != "" && this.quantity != "") {
         hoodie.store.withIdPrefix("item").add({
           name: this.name,
@@ -41,7 +39,7 @@ const vm = new Vue({
       } else {
         const snackbarContainer = document.querySelector("#toast");
         snackbarContainer.MaterialSnackbar.showSnackbar({
-          message: "An error occured; if statement telling than no data has been inserted @.@"
+          message: "An error occured. Please try again."
         });
       }//end_if
     },
@@ -95,9 +93,7 @@ const vm = new Vue({
       deletedItem =>
         (vm.items = vm.items.filter(item => item._id !== deletedItem._id))
     );
-
-    //retrieve items on the current list
-    console.log("Retreiving items...");
+    
     hoodie.store
       .withIdPrefix("item")
       .findAll()
